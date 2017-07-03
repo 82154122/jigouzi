@@ -1,0 +1,4 @@
+dist
+.DS_Store
+.gitgnore
+node_modules
