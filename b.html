@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="jquery/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    	var n=1;
+    	$(function(){
+    		$("#doAdd").click(function(){
+    			var name=$("#name").val();
+    			var age=$("#age").val();
+    			var email=$("#email").val();
+    			var tdNum=$("<td>"+n+"</td>")
+    			var tdName=$("<td>"+name+"</td>");
+    			var tdAge=$("<td>"+age+"</td>");
+    			var tdEmail=$("<td>"+email+"</td>");
+    			var tdButton=$("<td class='text-center'><button class='btn btn-danger btn-sm btn-delete'>删除</button></td>")
+
+    			var tr=$("<tr></tr>");
+    			tr.append(tdNum);
+    			tr.append(tdName);
+    			tr.append(tdAge);
+    			tr.append(tdEmail);
+    			tr.append(tdButton);
+    			n++;
+    			$("#tb").append(tr);
+    			$(".btn-delete").click(function(){
+    				$(this).parent().parent().remove();
+    			});
+
+    		});
+
+    		$(".btn-delete").click(function(){
+    			$(this).parent().parent().remove();
+    		});
+
+
+    	});
+
+
+    </script>
+</head>
+<body>
+	<div class="container" style="border:1px solid #ccc">
+		<h2 class="text-center">添加用户</h2>
+		<form class="form-horizontal">
+			 <div class="form-group">
+	  			 <label for="name" class="col-sm-2 control-label col-sm-offset-2">姓名：</label>
+	   			 <div class="col-sm-6">
+	     			 <input type="text" class="form-control" id="name" placeholder="请输入用户名">
+	    		 </div>
+  			</div>
+  			 <div class="form-group">
+	  			 <label for="age" class="col-sm-2 control-label col-sm-offset-2">年龄：</label>
+	   			 <div class="col-sm-6">
+	     			 <input type="text" class="form-control" id="age" placeholder="请输入年龄">
+	    		 </div>
+  			</div>
+  			 <div class="form-group">
+	  			 <label for="email" class="col-sm-2 control-label col-sm-offset-2">邮箱：</label>
+	   			 <div class="col-sm-6">
+	     			 <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
+	    		 </div>
+  			</div>
+  			<div class="form-group text-center">
+  				<input type="button" value="添加" class="btn btn-primary" id="doAdd">
+  				<input type="reset" value="重置" class="btn btn-primary"> 
+  			</div>
+		</form>
+		<hr>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr class="text-danger">
+					<th class="text-center">序号</th>
+					<th class="text-center">姓名</th>
+					<th class="text-center">年龄</th>
+					<th class="text-center">邮箱</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody id="tb">
+				<tr>
+					<td>1</td>
+					<td>tom</td>
+					<td>3</td>
+					<td>42@qq.com</td>
+					<td class="text-center"><button class="btn btn-danger btn-sm btn-delete">删除</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
